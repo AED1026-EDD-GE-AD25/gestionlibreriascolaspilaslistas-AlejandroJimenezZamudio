@@ -89,9 +89,30 @@ public class ListaDoble<T>{
      * @throws PosicionIlegalException
      */
 
-    public T remover(int pos) throws PosicionIlegalException{
-        
-        
+    public T remover(int pos) throws PosicionIlegalException{ 
+        if (pos < 0 || pos >= tamanio)
+            throw new PosicionIlegalException();
+
+        Nodo<T> aux = cabeza;
+        if (pos == 0) {
+            T valor = cabeza.getValor();
+            cabeza = cabeza.getSiguiente();
+            if (cabeza != null) cabeza.setAnterior(null);
+            tamanio--;
+            return valor;
+        }
+
+        for (int i = 0; i < pos; i++)
+            aux = aux.getSiguiente();
+
+        T valor = aux.getValor();
+        Nodo<T> anterior = aux.getAnterior();
+        Nodo<T> siguiente = aux.getSiguiente();
+        if (anterior != null) anterior.setSiguiente(siguiente);
+        if (siguiente != null) siguiente.setAnterior(anterior);
+        tamanio--;
+        return valor;
+
     }
      /*
      * Elimina un nodo que contiene un T valor
