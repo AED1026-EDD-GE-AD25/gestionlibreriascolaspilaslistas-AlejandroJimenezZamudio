@@ -130,9 +130,17 @@ public class ListaDoble<T>{
 
       */
      public int remover(T valor) throws PosicionIlegalException{
-        
-       
-        
+        Nodo<T> aux = cabeza;
+        int i = 0;
+        while (aux != null){
+            if (aux.getValor().equals(valor)) {
+                remover (i);
+                return i;
+            }
+            aux = aux.getSiguiente();
+            i++;
+        }
+        return -1;
     }
 
     /*
