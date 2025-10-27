@@ -180,19 +180,24 @@ public class ListaDoble<T>{
      * Regresa todos los datos de la lista en forma de String
      */
 
-    @Override
+    /*@Override
     public String toString() {
+
        
 
-    }
+    }*/
     /*
      * busca un valor en la lista
      * @return true si contiene ese valor
      * si no regresa false
      */
     public boolean contiene(T valor){
-        
+        Nodo<T> aux = cabeza;
+        while (aux != null) {
+            if (aux.getValor().equals(valor))
+                return true;
+            aux = aux.getSiguiente();
+        }
+        return false;
     }
-    
-    
 }
