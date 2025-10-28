@@ -10,5 +10,4 @@ public class Principal {
             i1.lectura();
     
         }
-    
 }
