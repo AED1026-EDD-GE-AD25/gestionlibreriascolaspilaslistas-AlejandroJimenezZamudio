@@ -36,14 +36,15 @@ public class Pila<T> {
 
     }
     public T retirar() {
-    if (esVacia()) {
-        return null;
+    if (!esVacia()) {
+        T valor = cabeza.getValor(); // guardamos el valor de la cima
+        cabeza = cabeza.getSiguiente(); // movemos la cabeza
+        tamanio--;
+        return valor; // devolvemos el valor retirado
+        
     }
-
-    T valor = cabeza.getValor(); // guardamos el valor de la cima
-    cabeza = cabeza.getSiguiente(); // movemos la cabeza
-    tamanio--;
-    return valor; // devolvemos el valor retirado
+    return null;
+    
 }
     public T cima(){                        //Devuelve el elemento en el tope de la pila
         if (!esVacia())

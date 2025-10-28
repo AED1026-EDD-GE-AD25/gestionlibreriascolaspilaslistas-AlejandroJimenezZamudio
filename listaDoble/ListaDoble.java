@@ -34,6 +34,7 @@ public class ListaDoble<T>{
                 aux = aux.getSiguiente();
             }
             aux.setSiguiente(nuevo); 
+            nuevo.setAnterior(aux);
             
         }
         tamanio++;
@@ -60,6 +61,7 @@ public class ListaDoble<T>{
                         aux = aux.getSiguiente();
                     }
                     aux.setSiguiente(nuevo); 
+                    nuevo.setAnterior(aux);
                     
 
                 }else{ // en medio
@@ -70,7 +72,9 @@ public class ListaDoble<T>{
                     }
                     Nodo<T> siguiente = aux.getSiguiente();
                     aux.setSiguiente(nuevo);
+                    nuevo.setAnterior(aux);
                     nuevo.setSiguiente(siguiente);
+                    siguiente.setAnterior(nuevo);
                     
 
                 }
